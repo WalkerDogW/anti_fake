@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <meta charset="UTF-8">
+    <title>巴德士防伪认证助手</title>
+    <style type="text/css">
+        table {
+            border:1px solid #000000;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        td, th {
+            border:1px solid #000000;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<form id="form1" style="font-family: STXingkai; font-size:x-large">
+    <div id="Top" style="width: 100%; height: 200px;">
+        <img th:src="'./Images/'+${qrCodeCheck.loGo}+'.jpg'" src="" style="width:100%;height:100%" />
+    </div>
+
+    <div id="Mid" style="width: 100%; height: 120px">
+        <img src="./Images/Mid_Right.jpg" style="width:100%;height:100%" />
+    </div>
+    <div id="Msgs" style="width:100%; text-align:center">
+        <table style="height:31px; Width:100%">
+            <tr>
+                <td>生产批号</td>
+                <td th:text="${qrCodeCheck.jarNo}"></td>
+            </tr>
+            <tr>
+                <td>产品型号</td>
+                <td th:text="${qrCodeCheck.inventory_Id}"></td>
+            </tr>
+            <tr>
+                <td>产品名称</td>
+                <td th:text="${qrCodeCheck.inventory_Name}"></td>
+            </tr>
+            <tr>
+                <td>生产日期</td>
+                <td th:text="${#dates.format(qrCodeCheck.createDate,'yyyy-MM-dd')}"></td>
+            </tr>
+            <tr>
+                <td>产品净重</td>
+                <td th:text="${qrCodeCheck.unit_Weight}"></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td>扫码次数</td>-->
+<!--                <td th:text="${qrCodeCheck.jarNo}"></td>-->
+<!--            </tr>-->
+        </table>
+
+    </div>
+<!--    <div style="text-align:center">-->
+<!--        <br />-->
+<!--        <a href="http://www.badese.com/">巴德士官网</a>-->
+<!--    </div>-->
+
+</form>
+</body>
+</html>
